@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #member-1{
+            border: 1px solid red;
+            height: 50px;
+            width: 10%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 5px;
+            
+        }
+        #member-2{
+            border: 1px solid green;
+            height: 50px;
+            width: 10%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 5px;
+            
+        }
+        #member-3{
+            border: 1px solid yellow;
+            height: 50px;
+            width: 10%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 5px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="winner">Show the Winner</div>
+    <div id="member-1">A</div>
+    <div id="member-2">B</div>
+    <div id="member-3">C</div>
+    <button id="roll" onclick="rolldice()">Roll the dice</button>
+    
+
+    
+</body>
+</html>
+<script>
+    document.querySelector("#roll").addEventListener("click",rolldice())
+
+    function rolldice(){
+       let mem1 = Math.floor(Math.random()*6)+1;
+       
+       document.querySelector("#member-1").innerText = mem1
+       
+       let mem2 = Math.floor(Math.random()*6)+1;
+       
+       document.querySelector("#member-2").innerText = mem2
+
+
+       let mem3 = Math.floor(Math.random()*6)+1;
+       
+       document.querySelector("#member-3").innerText = mem3
+
+
+       if(mem2>mem1 && mem2>mem3){
+           document.querySelector("#member-1").style.color = "green"
+           document.querySelector("#winner").innerText = "member-2"+"is"+"Winner"
+
+       }
+       else if(mem3>mem1 && mem3>mem2){
+           document.querySelector("#member-2").style.color = "yellow"
+           document.querySelector("#winner").innerText = "member-3"+"is"+"Winner"
+
+       }
+       else if(mem1>mem2 && mem1>mem3){
+           document.querySelector("#member-3").style.color = "red"
+           document.querySelector("#winner").innerText = "member-1"+"is"+"Winner"
+
+       }
+       else{
+           document.querySelector("#member-1").style.color ="blue"
+           document.querySelector("#member-2").style.color ="blue"
+           document.querySelector("#member-3").style.color ="blue"
+           document.querySelector("#winner").style.color ="Tie"
+       }
+
+
+    }
+</script>
